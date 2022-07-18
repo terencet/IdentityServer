@@ -25,12 +25,12 @@ public class Startup
 
         services.AddOperationalDbContext(options => {
             options.ConfigureDbContext = b =>
-                b.UseSqlServer(cn, dbOpts => dbOpts.MigrationsAssembly(typeof(Startup).Assembly.FullName));
+                b.UseNpgsql(cn, dbOpts => dbOpts.MigrationsAssembly(typeof(Startup).Assembly.FullName));
         });
 
         services.AddConfigurationDbContext(options => {
             options.ConfigureDbContext = b =>
-                b.UseSqlServer(cn, dbOpts => dbOpts.MigrationsAssembly(typeof(Startup).Assembly.FullName));
+                b.UseNpgsql(cn, dbOpts => dbOpts.MigrationsAssembly(typeof(Startup).Assembly.FullName));
         });
     }
 
